@@ -12,19 +12,9 @@ const server = http.createServer((req, res) => {
     console.log('User Agent:', userAgent);
     console.log('IP Address:', clientIp);
     
-    // Print the req object as a JSON string with indentation
-    const reqJsonString = JSON.stringify(req, (key, value) => {
-        if (typeof value === 'object' && value !== null) {
-            // Avoid circular reference
-            if (seen.includes(value)) {
-                return;
-            }
-            seen.push(value);
-        }
-        return value;
-    }, 2);
-    
-    console.log('Request Object:', reqJsonString);
+    console.log('Request Body:', req.body);
+    console.log('Request Query:', req.query);
+    console.log('Request Params:', req.params);
     
     // Respond to the client
     res.writeHead(200, {'Content-Type': 'text/plain'});
