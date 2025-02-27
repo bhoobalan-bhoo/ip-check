@@ -22,9 +22,10 @@ const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const queryParams = parsedUrl.query;
 
-    // Log user agent and IP address
+    // Log user agent, IP address, and headers
     console.log('User Agent:', userAgent);
     console.log('IP Address:', clientIp);
+    console.log('Request Headers:', req.headers);
     
     // Log query parameters
     console.log('Request Query:', queryParams);
